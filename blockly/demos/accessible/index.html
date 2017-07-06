@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Accessible Blockly</title>
+
+  <!-- Load Blockly -->
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../msg/js/en.js"></script>
+  <script src="../../msg/messages.js"></script>
+  <script src="../../accessible/messages.js"></script>
+
+  <!-- Load accessibleBlockly -->
+  <script src="../../accessible/libs/es6-shim.min.js"></script>
+  <script src="../../accessible/libs/angular2-polyfills.min.js"></script>
+  <script src="../../accessible/libs/Rx.umd.min.js"></script>
+  <script src="../../accessible/libs/angular2-all.umd.min.js"></script>
+
+  <script src="../../accessible/utils.service.js"></script>
+  <script src="../../accessible/notifications.service.js"></script>
+  <script src="../../accessible/audio.service.js"></script>
+  <script src="../../accessible/block-connection.service.js"></script>
+  <script src="../../accessible/block-options-modal.service.js"></script>
+  <script src="../../accessible/keyboard-input.service.js"></script>
+  <script src="../../accessible/tree.service.js"></script>
+  <script src="../../accessible/toolbox-modal.service.js"></script>
+  <script src="../../accessible/translate.pipe.js"></script>
+
+  <script src="../../accessible/field-segment.component.js"></script>
+  <script src="../../accessible/block-options-modal.component.js"></script>
+  <script src="../../accessible/toolbox-modal.component.js"></script>
+  <script src="../../accessible/sidebar.component.js"></script>
+  <script src="../../accessible/workspace-tree.component.js"></script>
+  <script src="../../accessible/workspace.component.js"></script>
+  <script src="../../accessible/app.component.js"></script>
+
+  <script src="../../blocks/functions.js"></script>
+  <script src="funtzioak.js"></script>
+
+  <script src="../../tests/generators/generators/javascript/functions.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../accessible/media/accessible.css">
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      margin-left: 30px;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+
+    *:focus {
+      background: yellow;
+    }
+
+  </style>
+</head>
+<body>
+  <div id = "emaitza" class="blocklyAriaLiveStatus">
+    <span aria-live="polite" role="status"></span>
+  </div>
+  <!--
+  <p>&rarr; More info on <a href="https://developers.google.com/blockly/">accessible Blockly</a>&hellip;</p>
+  -->
+  <div id="mailaT"></div>
+   <a href="#minijokoaTable" accesskey="m">Minijokoa taula</a><br>
+   <table id="minijokoaTable"></table>
+
+  <blockly-app></blockly-app>
+  <script>
+  var ACCESSIBLE_GLOBALS = {
+    // Prefix of path to sound files.
+    mediaPathPrefix: '../../accessible/media/',
+    // Additional buttons for the sidebar.
+    customSidebarButtons: [{
+      text: 'Run your program',
+      action: function(){
+        var code = Blockly.JavaScript.workspaceToCode(blocklyApp.workspace);
+        try {
+          klikkop++;
+          g=1;
+          kodea = code;
+          eval(code);
+          hurrengo_maila();
+        } catch (e) {
+          alert(e);
+        }
+      },
+      id: 'runBtn'
+    }]
+  };
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(blocklyApp.AppComponent);
+      if(localStorage.maila === undefined || localStorage.maila === null || Number.isNaN(Number(localStorage.maila))){
+        localStorage.maila =0;
+      }
+      kargatu_minijokoa(localStorage.maila);
+    });
+
+  </script>
+  <xml id="blockly-toolbox-xml" style="display: none">
+
+  </xml>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+    <title>Ikaslearen datu eskaria</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Temporary navbar container fix -->
+    <style>
+    .navbar-toggler {
+        z-index: 1;
+    }
+
+    @media (max-width: 576px) {
+        nav > .container {
+            width: 100%;
+        }
+    }
+    </style>
+    <script>
+    function validateForm() {
+
+      if (document.forms["galdetegia"]["izena"].value == "") {
+          alert("Izenak ezin du hutsa izan");
+          return false;
+      }
+      if (document.forms["galdetegia"]["abizena"].value == "") {
+          alert("Abizenak ezin du hutsa izan");
+          return false;
+      }
+      if (document.forms["galdetegia"]["pasahitza1"].value == "") {
+          alert("Pasahitzak ezin du hutsa izan");
+          return false;
+      }else if(document.forms["galdetegia"]["pasahitza1"].value == document.forms["galdetegia"]["pasahitza2"].value){
+          alert("Pasahitza eta pasahitz errepikatua ez datoz bat");
+          return false;
+      }
+      var reg = new RegExp('^\\d+$');
+      if (document.forms["galdetegia"]["adina"].value == "") {
+          alert("Adinak ezin du hutsa izan");
+          return false;
+      }else if (reg.test(document.forms["galdetegia"]["adina"].value)!=true){
+          alert("Adinak zenbakizkoa izan behar du");
+          return false;
+      }
+      return true;
+    }
+    </script>
+</head>
+
+<body class="index" id="page-top">
+    <section>
+      <div id="galdetegia">
+      <h5>Kaixo! Bete ondorengo datu pertsonalak mesedezez.</h5>
+      <form  method="post" action="server/ikaslea_datuakGorde.php" onsubmit="return validateForm()">
+         Pasahitz berria:<br>
+         <input type="password" name="pasahitza1" id="pasahitza1"><br>
+         Pasahitz berria:<br>
+         <input type="password" name="pasahitza1" id="pasahitza2"><br>
+         Izena:<br>
+         <input type="text" name="izena" id="izena"><br>
+         Abizena:<br>
+         <input type="text" name="abizena" id="abizena"><br>
+         Email: <br>
+         <input type="text" name="email" id="email"><br>
+         Adina:<br>
+         <input type="text" name="adina" id="adina"><br>
+         Generoa:<br>
+         <select name="generoa" id="generoa">
+            <option value="E">Emakumezkoa</option>
+            <option value="G">Gizonezkoa</option>
+            <option value="B">Bestelakoa</option>
+          </select><br>
+         Zein eskuarekin idazte duzu?<br>
+         <select type="text" name="eskuina" id="eskuina"><br>
+           <option value="D">Eskuina</option>
+           <option value="I">Ezkerra</option>
+           <option value="A">Biak</option>
+         </select><br>
+         <!--TECNOLOGIA EZAGUTZA-->
+         Bideojokoak gustuko dituzu?<br>
+         <select type="text" name="tec1" id="tec1"><br>
+           <option value="B">Bai</option>
+           <option value="E">Ez</option>
+         </select><br>
+         Zenbat ordenagailu dituzu etxean?<br>
+         <input type="text" name="tec2" id="tec2"><br>
+         Zenbat denbora pasatzen duzu ordenagailuarekin astean zehar? Gutxi gorabehera<br>
+         <select type="text" name="tec3" id="tec3"><br>
+           <option value="2">2 ordu</option>
+           <option value="5">5 ordu</option>
+           <option value="10">10 ordu</option>
+           <option value="15">15 ordu</option>
+         </select><br>
+         Ordenagailuarekin trebezia duzula esango zenuke?<br>
+         <select type="text" name="tec4" id="tec4"><br>
+           <option value="B">Bai</option>
+           <option value="E">Ez</option>
+         </select><br>
+         Inoiz programatu al duzu?<br>
+         <select type="text" name="tec5" id="tec5"><br>
+           <option value="B">Bai</option>
+           <option value="E">Ez</option>
+         </select><br>
+         Desgaitasun al duzu? Zein?<br>
+         <input type="text" name="desg" id="desg"><br>
+         <button class="btn-sample" type="submit">Bidali</button>
+      </form>
+      </div>
+    </section>
+
+  </body>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>

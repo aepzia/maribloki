@@ -1,0 +1,95 @@
+.btn-sample {
+  color: #ffffff;
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
+
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  color: #ffffff;
+  background-color: #18BC9C;
+  border-color: #2C3E50;
+}
+
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  background-image: none;
+}
+
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
+
+.btn-sample, .badge {
+  color: #2C3E50;
+  background-color: #ffffff;
+}
+table, th, td {
+   border: 1px solid black;
+   margin: auto auto;
+}
+table {
+    width: 100%;
+}
+
+
+.table-editable {
+  position: relative;
+
+  .glyphicon {
+    font-size: 20px;
+  }
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+
+  &:hover {
+    color: #f00;
+  }
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+
+  &:hover {
+    color: #00f;
+  }
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+
+  &:hover {
+    color: #0b0;
+  }
+}
+body{
+  margin: 20;
+  padding: 4;
+}
